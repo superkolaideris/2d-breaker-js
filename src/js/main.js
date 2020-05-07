@@ -1,6 +1,7 @@
 let canvas = document.getElementById("screen");
 let ctx = canvas.getContext("2d");
 
+
 // ball properties
 let x = 350;
 let y = 270;
@@ -93,9 +94,22 @@ function checkBallCollision() {
     //     dy = -dy;
     //     bump();
     // }
-    if (y + dy > canvas.height || y + dy < 0) {
+    // if (y + dy > canvas.height || y + dy < 0) {
+    //     dy = -dy;
+    //     bump();
+    // }
+    if (y + dy < ballRadius) {
         dy = -dy;
-        bump();
+    }
+    else if (y + dy > canvas.height-ballRadius) {
+        if (x > paddleX && x < paddleX + paddleWidth) {
+            dy = -dy;
+        }
+        else {
+            window.alert("bye bye ;/");
+            document.location.reload();
+            clearInterval(refreshRate);
+        }
     }
 }
 
@@ -167,4 +181,4 @@ function update() {
 }
 
 input();
-window.setInterval(update, 10);
+let refreshRate = window.setInterval(update, 10);
