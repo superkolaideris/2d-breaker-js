@@ -53,7 +53,7 @@ function bump() {
 function drawBall() {
     ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI*2);
-    ctx.fillStyle = "#ff8000";
+    ctx.fillStyle = "#4cafab";
     ctx.fill();
     ctx.closePath();
 }
@@ -61,7 +61,7 @@ function drawBall() {
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddleX, paddleY, paddleWidth, paddleHeight);
-    ctx.fillStyle = "#ff8000";
+    ctx.fillStyle = "#4cafab";
     ctx.fill();
     ctx.closePath();
 }
